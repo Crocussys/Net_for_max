@@ -1,0 +1,11 @@
+{
+  "create": true,
+  "learn": true,
+  "inference": true,
+  "plot": true,
+  "path": "nets\\example",
+  "config_network": [7, 5, 4],
+  "learn_rate": 0.1,
+  "epochs": 1000,
+  "print_every": 100
+}
