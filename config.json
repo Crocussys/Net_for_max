@@ -3,9 +3,25 @@
   "learn": true,
   "inference": true,
   "plot": true,
-  "path": "nets\\example",
-  "config_network": [7, 5, 4],
-  "learn_rate": 0.1,
-  "epochs": 1000,
-  "print_every": 100
+  "print_every": 100,
+  "path": "nets\\3muromB",
+  "config_network": [7, 1],
+  "training_method": "ResilientProp",
+  "training_methods": [
+    {
+      "name": "BackProp",
+      "learn_rate": 0.1,
+      "epochs": 1000
+    },
+    {
+      "name": "ResilientProp",
+      "epochs": 500,
+      "delta_start": 0.1,
+      "gamma_start": 0.1,
+      "correction_plus": 1.2,
+      "correction_minus": 0.5,
+      "correction_max": 50,
+      "correction_min": 1e-6
+    }
+  ]
 }

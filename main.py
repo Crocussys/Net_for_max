@@ -1,6 +1,5 @@
-from NeuralNet import NeuralNet
+from bin import Matrix, training_methods
 import matplotlib.pyplot as plt
-import numpy as np
 import json
 import csv
 
@@ -59,14 +58,17 @@ def inference(input_file: str, output_file: str = None):
 if __name__ == '__main__':
     with open('config.json', 'r') as config_file:
         config_data = json.load(config_file)
-    if config_data["create"]:
-        Network = NeuralNet(tuple(config_data["config_network"]), file_path=f"{config_data['path']}\\network.json")
-    else:
-        Network = NeuralNet(file_path=f"{config_data['path']}\\network.json")
-    Network.epochs = config_data["epochs"]
-    Network.print_every = config_data["print_every"]
-    Network.learn_rate = config_data["learn_rate"]
-    if config_data["learn"]:
-        Network.learning(in_csv(f"{config_data['path']}\\learning.csv", Network.config[0]), config_data["plot"])
-    if config_data["inference"]:
-        inference(f"{config_data['path']}\\input.csv", f"{config_data['path']}\\output.csv")
+    # if config_data["create"]:
+    #     Network = NeuralNet(tuple(config_data["config_network"]), file_path=f"{config_data['path']}\\network.json")
+    # else:
+    #     Network = NeuralNet(file_path=f"{config_data['path']}\\network.json")
+    # Network.epochs = config_data["epochs"]
+    # Network.print_every = config_data["print_every"]
+    # Network.learn_rate = config_data["learn_rate"]
+    # if config_data["learn"]:
+    #     Network.learning(in_csv(f"{config_data['path']}\\learning.csv", Network.config[0]), config_data["plot"])
+    # if config_data["inference"]:
+    #     inference(f"{config_data['path']}\\input.csv", f"{config_data['path']}\\output.csv")
+    Network = ResilientProp(tuple(config_data["config_network"]), file_path=f"{config_data['path']}\\network.json")
+    Network.learning(in_csv(f"{config_data['path']}\\learning.csv", Network.config[0]), config_data["plot"])
+    inference(f"{config_data['path']}\\input.csv", f"{config_data['path']}\\output.csv")
