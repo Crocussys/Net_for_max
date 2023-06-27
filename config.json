@@ -1,17 +1,11 @@
 {
-  "create": true,
-  "learn": true,
-  "inference": true,
-  "plot": true,
+  "path": "nets\\example",
   "print_every": 100,
-  "path": "nets\\3muromB",
-  "config_network": [7, 1],
-  "training_method": "ResilientProp",
   "training_methods": [
     {
       "name": "BackProp",
       "learn_rate": 0.1,
-      "epochs": 1000
+      "epochs": 500
     },
     {
       "name": "ResilientProp",
